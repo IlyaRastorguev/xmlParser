@@ -1,3 +1,4 @@
+import com.sun.org.apache.xerces.internal.dom.DeferredElementImpl;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -24,6 +25,7 @@ public class Main {
 
     public static void main(String[] args) {
         long beforeUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
+		long startTime = System.currentTimeMillis();
 		try {
 			File fXmlFile = new File("/Users/ilya/IdeaProjects/xmlParser/src/test.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -76,7 +78,7 @@ public class Main {
             Element root = flatDoc.createElement("flatFields");
             flatDoc.appendChild(root);
 
-            for (Map.Entry<String, Node> nodeEntry: fields.entrySet()) {
+            for (Map.Entry<String, Node> nodeEntry: doSort(fields)) {
                 flatDoc.getDocumentElement().appendChild(flatDoc.importNode(nodeEntry.getValue(), true));
             }
 
@@ -92,7 +94,9 @@ public class Main {
             long afterUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
             long maxMem=Runtime.getRuntime().maxMemory();
 
+			long time = System.currentTimeMillis();
             System.out.println(String.format("before: %s, after: %s, max: %s", afterUsedMem, beforeUsedMem, maxMem));
+			System.out.println(String.format("start: %s, end: %s, longs: %s", startTime, time, time - startTime));
 
 //            dBuilder.parse(new ByteArrayInputStream(((ByteArrayOutputStream) result.outputStream).toByteArray())).getDocumentElement().getChildNodes().item(8);
 
@@ -123,5 +127,18 @@ public class Main {
 
 	private static String getFieldName(Node node) {
 		return String.format("%s%s", node.getNodeName(), node.getTextContent());
+	}
+
+	private static List<HashMap.Entry<String, Node>> doSort(Map<String, Node> fields) {
+    	List<HashMap.Entry<String, Node>> list = new ArrayList(fields.entrySet());
+    	Collections.sort(list, new Comparator<HashMap.Entry<String, Node>>() {
+			@Override
+			public int compare(HashMap.Entry<String, Node> o1, HashMap.Entry<String, Node> o2) {
+				return ((DeferredElementImpl) o1.getValue()).getNodeIndex()
+								- ((DeferredElementImpl) o2.getValue()).getNodeIndex();
+			}
+		});
+
+    	return list;
 	}
 }

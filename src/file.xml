@@ -1,18 +1,133 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flatFields>
-    <receiverAccount>
-        <name>receiverAccount</name>
-        <title>Счет</title>
+    <status>
+        <code>0</code>
+    </status>
+    <operationDate>
+        <name>operationDate</name>
+        <title>ДАТА ОПЕРАЦИИ</title>
+        <type>date</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <dateType>
+            <value>21.08.18</value>
+        </dateType>
+        <changed>false</changed>
+    </operationDate>
+    <operationTime>
+        <name>operationTime</name>
+        <title>время операции (МСК)</title>
         <type>string</type>
         <required>true</required>
         <editable>false</editable>
         <visible>true</visible>
         <isSum>false</isSum>
         <stringType>
-            <value>12234810001234567890</value>
+            <value>11:04:16</value>
         </stringType>
         <changed>false</changed>
-    </receiverAccount>
+    </operationTime>
+    <billingDocumentNumber>
+        <name>billingDocumentNumber</name>
+        <title>номер операции</title>
+        <type>integer</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <integerType>
+            <value>001016002</value>
+        </integerType>
+        <changed>false</changed>
+    </billingDocumentNumber>
+    <fromResource>
+        <name>fromResource</name>
+        <title>Отправитель</title>
+        <type>resource</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <resourceType>
+            <availableValues>
+                <valueItem>
+                    <value>card:0</value>
+                    <selected>true</selected>
+                    <displayedValue>№ карты: 2862 98** **** 1622</displayedValue>
+                </valueItem>
+            </availableValues>
+        </resourceType>
+        <changed>false</changed>
+    </fromResource>
+    <amount>
+        <name>amount</name>
+        <title>Сумма операции</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>160,00 руб.</value>
+        </stringType>
+        <changed>false</changed>
+    </amount>
+    <comission>
+        <name>comission</name>
+        <title>Комиссия</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>0,00 руб.</value>
+        </stringType>
+        <changed>false</changed>
+    </comission>
+    <authCode>
+        <name>authCode</name>
+        <title>Код авторизации</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>-967192414701677547</value>
+        </stringType>
+        <changed>false</changed>
+    </authCode>
+    <field>
+        <name>FIO</name>
+        <title>ФИО</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>NEW NEW N.</value>
+        </stringType>
+        <changed>false</changed>
+    </field>
+    <field>
+        <name>extend-number-</name>
+        <title>поле number</title>
+        <description>Комент к полю number</description>
+        <hint>Описание поля number</hint>
+        <type>number</type>
+        <required>true</required>
+        <editable>true</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <numberType>
+            <value>917</value>
+        </numberType>
+        <changed>false</changed>
+    </field>
     <field>
         <name>extend-set-</name>
         <title>поле set</title>
@@ -44,50 +159,6 @@
         </setType>
         <changed>false</changed>
     </field>
-    <amount>
-        <name>amount</name>
-        <title>Сумма операции</title>
-        <type>string</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <stringType>
-            <value>160,00 руб.</value>
-        </stringType>
-        <changed>false</changed>
-    </amount>
-    <receiverINN>
-        <name>receiverINN</name>
-        <title>ИНН</title>
-        <type>string</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <stringType>
-            <value>352500045789</value>
-        </stringType>
-        <changed>false</changed>
-    </receiverINN>
-    <field>
-        <name>extend-money-</name>
-        <title>поле money</title>
-        <description>Комент к полю money</description>
-        <hint>Описание поля money</hint>
-        <type>money</type>
-        <required>true</required>
-        <editable>true</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <moneyType>
-            <value>263</value>
-        </moneyType>
-        <changed>false</changed>
-    </field>
-    <status>
-        <code>0</code>
-    </status>
     <field>
         <name>extend-string-</name>
         <title>поле string</title>
@@ -104,91 +175,20 @@
         <changed>false</changed>
     </field>
     <field>
-        <name>FIO</name>
-        <title>ФИО</title>
-        <type>string</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <stringType>
-            <value>NEW NEW N.</value>
-        </stringType>
-        <changed>false</changed>
-    </field>
-    <operationTime>
-        <name>operationTime</name>
-        <title>время операции (МСК)</title>
-        <type>string</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <stringType>
-            <value>11:04:16</value>
-        </stringType>
-        <changed>false</changed>
-    </operationTime>
-    <receiverBankName>
-        <name>receiverBankName</name>
-        <title>Наименование банка получателя</title>
-        <type>string</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <stringType>
-            <value>АБ "ИНТЕРПРОГРЕССБАНК" (ЗАО)</value>
-        </stringType>
-        <changed>false</changed>
-    </receiverBankName>
-    <fromResource>
-        <name>fromResource</name>
-        <title>Отправитель</title>
-        <type>resource</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <resourceType>
-            <availableValues>
-                <valueItem>
-                    <value>card:0</value>
-                    <selected>true</selected>
-                    <displayedValue>№ карты: 2862 98** **** 1622</displayedValue>
-                </valueItem>
-            </availableValues>
-        </resourceType>
-        <changed>false</changed>
-    </fromResource>
-    <field>
-        <name>extend-number-</name>
-        <title>поле number</title>
-        <description>Комент к полю number</description>
-        <hint>Описание поля number</hint>
-        <type>number</type>
+        <name>extend-money-</name>
+        <title>поле money</title>
+        <description>Комент к полю money</description>
+        <hint>Описание поля money</hint>
+        <type>money</type>
         <required>true</required>
         <editable>true</editable>
         <visible>true</visible>
         <isSum>false</isSum>
-        <numberType>
-            <value>917</value>
-        </numberType>
+        <moneyType>
+            <value>263</value>
+        </moneyType>
         <changed>false</changed>
     </field>
-    <billingDocumentNumber>
-        <name>billingDocumentNumber</name>
-        <title>номер операции</title>
-        <type>integer</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <integerType>
-            <value>001016002</value>
-        </integerType>
-        <changed>false</changed>
-    </billingDocumentNumber>
     <receiverName>
         <name>receiverName</name>
         <title>Получатель платежа</title>
@@ -202,45 +202,6 @@
         </stringType>
         <changed>false</changed>
     </receiverName>
-    <operationDate>
-        <name>operationDate</name>
-        <title>ДАТА ОПЕРАЦИИ</title>
-        <type>date</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <dateType>
-            <value>21.08.18</value>
-        </dateType>
-        <changed>false</changed>
-    </operationDate>
-    <comission>
-        <name>comission</name>
-        <title>Комиссия</title>
-        <type>string</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <stringType>
-            <value>0,00 руб.</value>
-        </stringType>
-        <changed>false</changed>
-    </comission>
-    <authCode>
-        <name>authCode</name>
-        <title>Код авторизации</title>
-        <type>string</type>
-        <required>true</required>
-        <editable>false</editable>
-        <visible>true</visible>
-        <isSum>false</isSum>
-        <stringType>
-            <value>-967192414701677547</value>
-        </stringType>
-        <changed>false</changed>
-    </authCode>
     <receiverBIC>
         <name>receiverBIC</name>
         <title>БИК</title>
@@ -254,6 +215,32 @@
         </stringType>
         <changed>false</changed>
     </receiverBIC>
+    <receiverINN>
+        <name>receiverINN</name>
+        <title>ИНН</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>352500045789</value>
+        </stringType>
+        <changed>false</changed>
+    </receiverINN>
+    <receiverAccount>
+        <name>receiverAccount</name>
+        <title>Счет</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>12234810001234567890</value>
+        </stringType>
+        <changed>false</changed>
+    </receiverAccount>
     <receiverCorAccount>
         <name>receiverCorAccount</name>
         <title>Корр. счет</title>
@@ -267,4 +254,17 @@
         </stringType>
         <changed>false</changed>
     </receiverCorAccount>
+    <receiverBankName>
+        <name>receiverBankName</name>
+        <title>Наименование банка получателя</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>АБ "ИНТЕРПРОГРЕССБАНК" (ЗАО)</value>
+        </stringType>
+        <changed>false</changed>
+    </receiverBankName>
 </flatFields>
