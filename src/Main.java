@@ -1,3 +1,4 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -24,7 +25,7 @@ public class Main {
     public static void main(String[] args) {
         long beforeUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
 		try {
-			File fXmlFile = new File("/home/ilya/IdeaProjects/xmlParser/src/test.xml");
+			File fXmlFile = new File("/Users/ilya/IdeaProjects/xmlParser/src/test.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fXmlFile);
@@ -59,10 +60,16 @@ public class Main {
 
 			for (Node node: deepestNodes) {
 			    Node nodeParent = node.getParentNode();
-			    while (findParent(nodeParent, fields)) {
+				Boolean exist = false;
+
+			    while (!exist && nodeParent != null) {
+					exist = findParent(nodeParent, fields);
 			        nodeParent = nodeParent.getParentNode();
                 }
-                fields.put(nodeParent.getNodeName(), nodeParent);
+                if (nodeParent == null && !exist) {
+					fields.put(getFieldName(node.getParentNode()), node.getParentNode());
+				}
+
             }
 
             Document flatDoc = dBuilder.newDocument();
@@ -77,7 +84,7 @@ public class Main {
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(flatDoc);
             StreamResult resultByte = new StreamResult(new ByteArrayOutputStream());
-            StreamResult resultFile = new StreamResult(new File("/home/ilya/IdeaProjects/xmlParser/src/file.xml"));
+            StreamResult resultFile = new StreamResult(new File("/Users/ilya/IdeaProjects/xmlParser/src/file.xml"));
 
             transformer.transform(source, resultByte);
             transformer.transform(source, resultFile);
@@ -111,7 +118,10 @@ public class Main {
 	}
 
 	private static boolean findParent(Node node, Map<String, Node> fields) {
-        node = node.getParentNode();
-        return fields.containsKey(node.getNodeName());
+        return fields.containsKey(getFieldName(node));
     }
+
+	private static String getFieldName(Node node) {
+		return String.format("%s%s", node.getNodeName(), node.getTextContent());
+	}
 }

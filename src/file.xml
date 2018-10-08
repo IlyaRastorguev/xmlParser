@@ -1,156 +1,270 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><flatFields><idontknow>
-                                                        <name>receiverDUL</name>
-                                                        <title>ИНН</title>
-                                                        <type>integer</type>
-                                                        <required>false</required>
-                                                        <editable>false</editable>
-                                                        <visible>true</visible>
-                                                        <stringType>
-                                                            <value>456000</value>
-                                                        </stringType>
-                                                        <changed>false</changed>
-                                                    </idontknow><bithday>
-                <name>receiverDUL</name>
-                <title>ИНН</title>
-                <type>integer</type>
-                <required>false</required>
-                <editable>false</editable>
-                <visible>true</visible>
-                <integerType>
-                    <value>5903106399</value>
-                </integerType>
-                <changed>false</changed>
-            </bithday><address>
-                    <name>receiverDUL</name>
-                    <title>ИНН</title>
-                    <type>integer</type>
-                    <required>false</required>
-                    <editable>false</editable>
-                    <visible>true</visible>
-                    <integerType>
-                        <value>5903106399</value>
-                    </integerType>
-                    <changed>false</changed>
-                </address><f>
-                                <name>receiverDUL</name>
-                                <title>ИНН</title>
-                                <type>integer</type>
-                                <required>false</required>
-                                <editable>false</editable>
-                                <visible>true</visible>
-                                <integerType>
-                                    <value>5903106399</value>
-                                </integerType>
-                                <changed>false</changed>
-                            </f><inn>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flatFields>
+    <receiverAccount>
+        <name>receiverAccount</name>
+        <title>Счет</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>12234810001234567890</value>
+        </stringType>
+        <changed>false</changed>
+    </receiverAccount>
+    <field>
+        <name>extend-set-</name>
+        <title>поле set</title>
+        <description>Комент к полю set</description>
+        <hint>Описание поля set</hint>
+        <type>set</type>
+        <required>true</required>
+        <editable>true</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <setType>
+            <availableValues>
+                <valueItem>
+                    <value>значение set 1</value>
+                    <title>значение set 1</title>
+                    <selected>true</selected>
+                </valueItem>
+                <valueItem>
+                    <value>значение set 2</value>
+                    <title>значение set 2</title>
+                    <selected>false</selected>
+                </valueItem>
+                <valueItem>
+                    <value>значение set 3</value>
+                    <title>значение set 3</title>
+                    <selected>true</selected>
+                </valueItem>
+            </availableValues>
+        </setType>
+        <changed>false</changed>
+    </field>
+    <amount>
+        <name>amount</name>
+        <title>Сумма операции</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>160,00 руб.</value>
+        </stringType>
+        <changed>false</changed>
+    </amount>
+    <receiverINN>
         <name>receiverINN</name>
         <title>ИНН</title>
-        <type>integer</type>
-        <required>false</required>
+        <type>string</type>
+        <required>true</required>
         <editable>false</editable>
         <visible>true</visible>
-        <integerType>
-            <value>5903106399</value>
-        </integerType>
+        <isSum>false</isSum>
+        <stringType>
+            <value>352500045789</value>
+        </stringType>
         <changed>false</changed>
-    </inn><sum>
-        <name>receiverDUL</name>
-        <title>ИНН</title>
-        <type>integer</type>
-        <required>false</required>
+    </receiverINN>
+    <field>
+        <name>extend-money-</name>
+        <title>поле money</title>
+        <description>Комент к полю money</description>
+        <hint>Описание поля money</hint>
+        <type>money</type>
+        <required>true</required>
+        <editable>true</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <moneyType>
+            <value>263</value>
+        </moneyType>
+        <changed>false</changed>
+    </field>
+    <status>
+        <code>0</code>
+    </status>
+    <field>
+        <name>extend-string-</name>
+        <title>поле string</title>
+        <description>Комент к полю string</description>
+        <hint>Описание поля string</hint>
+        <type>string</type>
+        <required>true</required>
+        <editable>true</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>812</value>
+        </stringType>
+        <changed>false</changed>
+    </field>
+    <field>
+        <name>FIO</name>
+        <title>ФИО</title>
+        <type>string</type>
+        <required>true</required>
         <editable>false</editable>
         <visible>true</visible>
-        <integerType>
-            <value>5903106399</value>
-        </integerType>
+        <isSum>false</isSum>
+        <stringType>
+            <value>NEW NEW N.</value>
+        </stringType>
         <changed>false</changed>
-    </sum><innerFoeld>
-            <name>receiverDUL</name>
-            <title>ИНН</title>
-            <type>integer</type>
-            <required>false</required>
-            <editable>false</editable>
-            <visible>true</visible>
-            <integerType>
-                <value>5903106399</value>
-            </integerType>
-            <changed>false</changed>
-        </innerFoeld><rules>
-            <name>receiverDUL</name>
-            <integerType>
-                <value>5903106399</value>
-            </integerType>
-            <changed>false</changed>
-        </rules><R>
-                        <name>receiverDUL</name>
-                        <title>ИНН</title>
-                        <type>integer</type>
-                        <required>false</required>
-                        <editable>false</editable>
-                        <visible>true</visible>
-                        <integerType>
-                            <value>5903106399</value>
-                        </integerType>
-                        <changed>false</changed>
-                    </R><passport>
-            <name>receiverDUL</name>
-            <title>ИНН</title>
-            <type>integer</type>
-            <required>false</required>
-            <editable>false</editable>
-            <visible>true</visible>
-            <integerType>
-                <value>5903106399</value>
-            </integerType>
-            <changed>false</changed>
-        </passport><parser>
-                                                        <name>receiverDUL</name>
-                                                        <title>ИНН</title>
-                                                        <type>integer</type>
-                                                        <required>false</required>
-                                                        <editable>false</editable>
-                                                        <visible>true</visible>
-                                                        <stringType>
-                                                            <value>456000</value>
-                                                        </stringType>
-                                                        <changed>false</changed>
-                                                    </parser><xml>
-                                                        <name>receiverDUL</name>
-                                                        <title>ИНН</title>
-                                                        <type>integer</type>
-                                                        <required>false</required>
-                                                        <editable>false</editable>
-                                                        <visible>true</visible>
-                                                        <stringType>
-                                                            <value>456000</value>
-                                                        </stringType>
-                                                        <changed>false</changed>
-                                                    </xml><dul>
-        <name>receiverDUL</name>
-        <title>ИНН</title>
-        <type>integer</type>
-        <required>false</required>
+    </field>
+    <operationTime>
+        <name>operationTime</name>
+        <title>время операции (МСК)</title>
+        <type>string</type>
+        <required>true</required>
         <editable>false</editable>
         <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>11:04:16</value>
+        </stringType>
+        <changed>false</changed>
+    </operationTime>
+    <receiverBankName>
+        <name>receiverBankName</name>
+        <title>Наименование банка получателя</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>АБ "ИНТЕРПРОГРЕССБАНК" (ЗАО)</value>
+        </stringType>
+        <changed>false</changed>
+    </receiverBankName>
+    <fromResource>
+        <name>fromResource</name>
+        <title>Отправитель</title>
+        <type>resource</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <resourceType>
+            <availableValues>
+                <valueItem>
+                    <value>card:0</value>
+                    <selected>true</selected>
+                    <displayedValue>№ карты: 2862 98** **** 1622</displayedValue>
+                </valueItem>
+            </availableValues>
+        </resourceType>
+        <changed>false</changed>
+    </fromResource>
+    <field>
+        <name>extend-number-</name>
+        <title>поле number</title>
+        <description>Комент к полю number</description>
+        <hint>Описание поля number</hint>
+        <type>number</type>
+        <required>true</required>
+        <editable>true</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <numberType>
+            <value>917</value>
+        </numberType>
+        <changed>false</changed>
+    </field>
+    <billingDocumentNumber>
+        <name>billingDocumentNumber</name>
+        <title>номер операции</title>
+        <type>integer</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
         <integerType>
-            <value>5903106399</value>
+            <value>001016002</value>
         </integerType>
         <changed>false</changed>
-    </dul><debt>
-                                                    <name>receiverDUL</name>
-                                                    <title>ИНН</title>
-                                                    <type>integer</type>
-                                                    <required>false</required>
-                                                    <editable>false</editable>
-                                                    <visible>true</visible>
-                                                    <stringType>
-                                                        <value>456000</value>
-                                                    </stringType>
-                                                    <changed>false</changed>
-                                                </debt><testCustom>
-                <name>receiverDUL</name>
-                <integerType>
-                    <value>5903106399</value>
-                </integerType>
-                <changed>false</changed>
-            </testCustom></flatFields>
+    </billingDocumentNumber>
+    <receiverName>
+        <name>receiverName</name>
+        <title>Получатель платежа</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>Африканская компания по добыче снега</value>
+        </stringType>
+        <changed>false</changed>
+    </receiverName>
+    <operationDate>
+        <name>operationDate</name>
+        <title>ДАТА ОПЕРАЦИИ</title>
+        <type>date</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <dateType>
+            <value>21.08.18</value>
+        </dateType>
+        <changed>false</changed>
+    </operationDate>
+    <comission>
+        <name>comission</name>
+        <title>Комиссия</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>0,00 руб.</value>
+        </stringType>
+        <changed>false</changed>
+    </comission>
+    <authCode>
+        <name>authCode</name>
+        <title>Код авторизации</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>-967192414701677547</value>
+        </stringType>
+        <changed>false</changed>
+    </authCode>
+    <receiverBIC>
+        <name>receiverBIC</name>
+        <title>БИК</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>044525402</value>
+        </stringType>
+        <changed>false</changed>
+    </receiverBIC>
+    <receiverCorAccount>
+        <name>receiverCorAccount</name>
+        <title>Корр. счет</title>
+        <type>string</type>
+        <required>true</required>
+        <editable>false</editable>
+        <visible>true</visible>
+        <isSum>false</isSum>
+        <stringType>
+            <value>30101810100000000402</value>
+        </stringType>
+        <changed>false</changed>
+    </receiverCorAccount>
+</flatFields>
