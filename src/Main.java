@@ -25,6 +25,8 @@ public class Main {
     private static final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
     private static final  DocumentBuilder dBuilder = getDocumentBuilder();
 
+    private static final List<String> requiredFieldRows = Arrays.asList("name", "title", "type", "required");
+
     public static void main(String[] args) throws TransformerException {
         try {
             File fXmlFile = new File("/home/ilya/IdeaProjects/xmlParser/src/test.xml");
@@ -41,7 +43,7 @@ public class Main {
                             new CopyOnWriteArrayList<>()), new ArrayList<>()
             );
 
-//            createOutput(getFlatDocument(dBuilder, getFieldsMap(deepestNodes)));
+            createOutput(getFlatDocument(getFieldsMap(deepestNodes)));
 
             long time = System.currentTimeMillis();
             long afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
@@ -58,13 +60,13 @@ public class Main {
     private static void createOutput(Document flatDoc) throws TransformerException {
         DOMSource source = new DOMSource(flatDoc);
         StreamResult resultByte = new StreamResult(new ByteArrayOutputStream());
-//        StreamResult resultFile = new StreamResult(new File("/home/ilya/IdeaProjects/xmlParser/src/file.xml"));
+        StreamResult resultFile = new StreamResult(new File("/home/ilya/IdeaProjects/xmlParser/src/file.xml"));
 
         transformer.transform(source, resultByte);
-//        transformer.transform(source, resultFile);
+        transformer.transform(source, resultFile);
     }
 
-    private static Document getFlatDocument(DocumentBuilder dBuilder, Map<String, Node> fields) {
+    private static Document getFlatDocument(Map<String, Node> fields) {
         Document flatDoc = dBuilder.newDocument();
         flatDoc.appendChild(flatDoc.createElement("flatFields"));
         Element rootElement = flatDoc.getDocumentElement();
@@ -81,7 +83,7 @@ public class Main {
 
         for (Node node : deepestNodes) {
             Node nodeParent = node.getParentNode();
-            Boolean exist = false;
+            boolean exist = false;
 
             while (!exist && nodeParent != null) {
                 exist = findParent(nodeParent, fields);
@@ -89,11 +91,26 @@ public class Main {
             }
 
             if (nodeParent == null && !exist) {
-                fields.put(getFieldName(node.getParentNode()), node.getParentNode());
+                if (checkForRequarience(node.getParentNode().getChildNodes()))
+                    fields.put(getFieldName(node.getParentNode()), node.getParentNode());
             }
 
         }
         return fields;
+    }
+
+    private static boolean checkForRequarience(final NodeList fieldCandidate) {
+        boolean matches = false;
+
+        nextRequirement:
+        for (String requiredElement: requiredFieldRows) {
+            for (int i = 0; i < fieldCandidate.getLength(); i++) {
+               matches = fieldCandidate.item(i).getNodeName().equals(requiredElement);
+               if (matches) break nextRequirement;
+            }
+        }
+
+        return matches;
     }
 
     private static List<Node> findDeepestNodes(List<Node> nodes, List<Node> deepestNodes) {
